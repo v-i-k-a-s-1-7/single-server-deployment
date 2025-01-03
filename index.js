@@ -12,6 +12,11 @@ app.get('/about', (req, res) => {
   res.send('<h1>Hello World from About Page!</h1>');
 });
 
-app.listen(port, () => {
-  console.log(`App running at <http://localhost>:${port}`);
-});
+if (require.main === module) {
+  app.listen(port, () => {
+    console.log(`App running at http://localhost:${port}`);
+  });
+}
+
+module.exports = app;
+
